@@ -214,8 +214,7 @@ class MainFrame extends JFrame implements KeyListener{
 
 	
 	public void performRandomGrid() {
-		GridPosition pos;
-		pos = this.getRandomGridPosition();
+		GridPosition pos = this.getRandomGridPosition();
 		this.setGridValue(pos.i, pos.j, this.getRandomNumber());
 	}
 	
