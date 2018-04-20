@@ -97,16 +97,25 @@ class MainFrame extends JFrame implements KeyListener{
 	}
 	
 	public void failedJudge() {
-		
 		if(isMoveable() == false) {
-			String[] option = {"Retry", "Exit"};
+			String[] option = {"Try again", "Exit"};
 			int result = JOptionPane.showOptionDialog(this, "You failed!", "Game Over", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, option, option[0]);
 			switch (result) {
 				case 0: this.initGame(); break;
 				case 1: System.exit(0); break;
-				case JOptionPane.CLOSED_OPTION: System.exit(0); break;
+				case JOptionPane.CLOSED_OPTION: this.initGame(); break;
 			}
 		}
+	}
+	
+	public void winner() {
+			String[] option = {"Restart", "Exit"};
+			int result = JOptionPane.showOptionDialog(this, "Winner!", "Congratulations", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, option, option[0]);
+			switch (result) {
+				case 0: this.initGame(); break;
+				case 1: System.exit(0); break;
+				case JOptionPane.CLOSED_OPTION: this.initGame(); break;
+			}
 	}
 	
 	public boolean isZeroGrid(int i, int j) {
@@ -126,7 +135,7 @@ class MainFrame extends JFrame implements KeyListener{
 		return Integer.parseInt(text);
 	}
 
-	public boolean setGridValue(int i, int j, int value) {
+	public void setGridValue(int i, int j, int value) {
 		if(value == 0) {
 			grid[i][j].setText("");
 		} else {
@@ -146,11 +155,9 @@ class MainFrame extends JFrame implements KeyListener{
 			case 8: grid[i][j].setBackground(Color.PINK); break;
 			case 9: grid[i][j].setBackground(Color.ORANGE); break;
 			case 10: grid[i][j].setBackground(Color.BLUE); break;
-			case 11: grid[i][j].setBackground(Color.RED); return true;
+			case 11: grid[i][j].setBackground(Color.RED); winner();
 			default: grid[i][j].setBackground(Color.WHITE); break;
 		}
-		
-		return false;
 	}
 	
 	// return the position which is not include the existed part.
