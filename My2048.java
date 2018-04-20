@@ -42,11 +42,8 @@ class MainFrame extends JFrame implements KeyListener{
 	}
 	
 	public void setComponentsUI() {
-		int i, j;
-		for(i = 0; i < 4; i++)
-		{
-			for(j = 0; j < 4; j++)
-			{
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 4; j++) {
 				grid[i][j] = new JLabel("", SwingConstants.CENTER);
 				grid[i][j].setBounds(j * 96, i * 96, 96, 96);
 				grid[i][j].setOpaque(true);
