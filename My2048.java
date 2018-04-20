@@ -219,7 +219,6 @@ class MainFrame extends JFrame implements KeyListener{
 	}
 	
 	private void performRight() {
-		boolean isMerged = false;
 		
 		// clean up blank
 		for (int n = 0; n < 4; n++) {
@@ -235,10 +234,8 @@ class MainFrame extends JFrame implements KeyListener{
 		}
 		
 		for (int i = 0; i < 4; i++) {
-			isMerged = false;
 			for (int j = 3; j > 0; j--) {
 				if (getGridValue(i, j - 1) == getGridValue(i, j) ) {
-					isMerged = true;
 					setGridValue(i, j, getGridValue(i, j) * 2);
 					setGridValue(i, j - 1, 0);
 				}
@@ -260,7 +257,6 @@ class MainFrame extends JFrame implements KeyListener{
 	}
 
 	private void performLeft() {
-		boolean isMerged = false;
 		
 		// clean up blank
 		for (int n = 0; n < 4; n++) {
@@ -276,10 +272,8 @@ class MainFrame extends JFrame implements KeyListener{
 		}
 		
 		for (int i = 0; i < 4; i++) {
-			isMerged = false;
 			for (int j = 0; j < 3; j++) {
 				if (getGridValue(i, j + 1) == getGridValue(i, j) ) {
-					isMerged = true;
 					setGridValue(i, j, getGridValue(i, j) * 2);
 					setGridValue(i, j + 1, 0);
 				}
@@ -301,7 +295,6 @@ class MainFrame extends JFrame implements KeyListener{
 	}
 
 	private void performDown() {
-		boolean isMerged = false;
 		
 		// clean up blank
 		for (int n = 0; n < 4; n++) {
@@ -317,10 +310,8 @@ class MainFrame extends JFrame implements KeyListener{
 		}
 		
 		for (int j = 0; j < 4; j++) {
-			isMerged = false;
 			for (int i = 3; i > 0; i--) {
 				if (getGridValue(i - 1, j) == getGridValue(i, j) ) {
-					isMerged = true;
 					setGridValue(i, j, getGridValue(i, j) * 2);
 					setGridValue(i - 1, j, 0);
 				}
@@ -342,7 +333,6 @@ class MainFrame extends JFrame implements KeyListener{
 	}
 
 	private void performUp() {
-		boolean isMerged = false;
 		
 		// clean up blank
 		for (int n = 0; n < 4; n++) {
@@ -358,10 +348,8 @@ class MainFrame extends JFrame implements KeyListener{
 		}
 		
 		for (int j = 0; j < 4; j++) {
-			isMerged = false;
 			for (int i = 0; i < 3; i++) {
 				if (getGridValue(i + 1, j) == getGridValue(i, j) ) {
-					isMerged = true;
 					setGridValue(i, j, getGridValue(i, j) * 2);
 					setGridValue(i + 1, j, 0);
 				}
